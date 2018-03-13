@@ -2,23 +2,23 @@
 
 A working but (probably) unfinished unit testing framework for Core Foundation types and NSObjects in C
 
-#### Why?
+### Why?
 For whatever masochistic reason, I enjoy using C and the sense of satisfaction I get from subverting Objective-Cs monopoly over its own runtime (it is written in C after all). Luckily for society though, not many people prefer doing it the hard way which means there aren't a lot of tools for the people who put the C in Objective-C.
 
 I have been working on a C library that allows users to post NSUserNotifications from their C code and I could not find a unit testing framework that worked well for what I was doing.  Having to write all of those `objc_msgSend`s was getting old so I figured I would write my own.
 
 This could also be a great tool for those wanting to learn to interact with macOS through C. Having a test that will tell you when you have finally cracked the case of whatever undocumented task you are trying to accomplish can be a great help.
 
-#### Well that sounds cool but how does it work?
+### Well that sounds cool but how does it work?
 Thanks, it actually is pretty cool and luckily for whichever reader said that I have included an example in the repo.  I will get into some more detail here though.
 
 There are two separate assert functions here: `CF_ASSERT` and `NS_ASSERT`.  As you might have guessed the former is for comparing Core Foundation types (CFStringRef, CFDictionary, etc) and the latter is for comparing any object subclassed from NSObject (NSUserNotification, NSArray, etc). You can also build test suites that alternate between the two.
 
 `CF_ASSERT` compares the two `CFWhatever`s passed to it using the `CFEqual` function and `NS_ASSERT` shoots an `objc_msgSend` with the two NSObjects and the `isEqual:` selector.
 
-##### Okay, that's nice but how do I use it?
+### Okay, that's nice but how do I use it?
 
-###### Building
+#### Building
 Using the included `Makefile`, you have a couple of options:
 
 `make`: This will build a static library and a shared library of CFTest plus the example.
@@ -27,7 +27,7 @@ Using the included `Makefile`, you have a couple of options:
 
 `make example`: Should you make the libraries first then decide you want the example, run this.
 
-###### Writing the test
+#### Writing the test
 This framework functions like many other unit testing frameworks do actually.  You write a series of `void` functions that contain:
 
 - A setup
@@ -59,7 +59,7 @@ CFStringRef c_cfstr(char * str) {
 }
 ```
 
-###### Using the test suites
+##### Using the test suites
 Suites are a way to group your tests into chunks that can be run separately. In the example I set up a suite of tests to use on `c_cfstr`.  Let's make a suite and give it a name:
 
 ```
@@ -94,7 +94,7 @@ C string to CFStringRef Suite:
 -----------------------------------------------
 ```
 
-#### That's it?
+### That's it?
 Pretty much.  This is a simple tool for a niche market. If you have something you would like to add to the project make, a fork and send a PR! I know I am not the worlds best C programmer so any help is appreciated.
 
 And to the three people that use this, have fun.
