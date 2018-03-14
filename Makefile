@@ -13,11 +13,10 @@ lib:
 
 output:
 	test -d example
-	cp CFTest.h example/CFTest.h
 	$(CC) -Wall -c -o example/libExample.o example/libExample.c
 	ar rcs example/libExample.a example/libExample.o
 	$(CC) -Wall -o test_example example/test_example.c example/libExample.a lib/libCFTest.a -framework Foundation
-	rm -f example/libExample.o example/libExample.a example/CFTest.h
+	rm -f example/libExample.o example/libExample.a
 
 example: output
 

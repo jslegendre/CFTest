@@ -2,7 +2,7 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <objc/objc-runtime.h>
 
-#include "CFTest.h"
+#include "../CFTest.h"
 #include "libExample.h"
 
 void cfstringref_test1() {
