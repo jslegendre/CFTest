@@ -77,7 +77,7 @@ int main(void) {
 }
 ```
 
-Once all the tests are added we can run the suite with `RUN_SUITE` and get our results:
+Once all the tests are added we can run the suite with `RUN_SUITE` and get our super-cool-color-coded results:
 ```
 int main(void) {
 	CF_TEST_SUITE * cfstring_suite = CF_new_suite("C string to CFStringRef Suite");
