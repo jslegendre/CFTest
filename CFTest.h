@@ -12,8 +12,6 @@ typedef struct cftestsuite {
 	CF_TEST **all_tests;
 }CF_TEST_SUITE;
 
-_Bool g_test_passed;
-
 void CF_add_test(CF_TEST_SUITE *test_suite, char *name, void (*test)());
 void CF_ASSERT(CFTypeRef test, CFTypeRef should);
 void NS_ASSERT(id test, id should);

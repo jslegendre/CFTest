@@ -8,6 +8,8 @@
 #define KYEL  "\x1B[33m"
 #define RESET "\x1B[0m"
 
+_Bool g_test_passed;
+
 void CF_ASSERT(CFTypeRef test, CFTypeRef should){
 	Boolean equal = CFEqual(test, should);
 	if (!equal) {
